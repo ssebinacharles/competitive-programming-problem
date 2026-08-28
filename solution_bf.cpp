@@ -1,30 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
 
 int main() {
-    int t;
-    scanf("%d", &t);
-    while (t--) {
-        int n;
-        ll K;
-        int Lmin, Lmax;
-        scanf("%d %lld %d %d", &n, &K, &Lmin, &Lmax);
-        vector<ll> a(n + 1);
-        for (int i = 1; i <= n; i++) scanf("%lld", &a[i]);
+    int n;
+    cin >> n;
+    vector<int> a(n + 1);
+    for (int i = 1; i <= n; i++) cin >> a[i];
 
-        ll answer = 0;
-        for (int l = 1; l <= n; l++) {
-            ll sum = 0;
-            for (int r = l; r <= n; r++) {
-                sum += a[r];
-                int len = r - l + 1;
-                if (len < Lmin) continue;
-                if (len > Lmax) break;
-                if (sum >= K * (ll)len) answer++;
-            }
+    int ans = 0;
+    for (int l = 1; l <= n; l++) {
+        int g = 0, x = 0;
+        for (int r = l; r <= n; r++) {
+            g = __gcd(g, a[r]);
+            x ^= a[r];
+            ans = max(ans, g ^ x);
         }
-        printf("%lld\n", answer);
     }
+    cout << ans << "\n";
     return 0;
 }
