@@ -1,10 +1,8 @@
-// generator.cpp
 #include <bits/stdc++.h>
 using namespace std;
 
 int main(int argc, char** argv) {
-    // usage: generator <seed> <maxN> <maxAbsA> <maxAbsK>
-    long long seed = argc > 1 ? atoll(argv[1]) : 1;
+        long long seed = argc > 1 ? atoll(argv[1]) : 1;
     int maxN = argc > 2 ? atoi(argv[2]) : 10;
     long long maxAbsA = argc > 3 ? atoll(argv[3]) : 10;
     long long maxAbsK = argc > 4 ? atoll(argv[4]) : 10;

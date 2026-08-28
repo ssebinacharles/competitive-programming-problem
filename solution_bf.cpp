@@ -1,4 +1,3 @@
-// solution_bf.cpp
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
